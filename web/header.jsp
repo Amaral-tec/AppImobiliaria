@@ -1,5 +1,11 @@
+<%@page import="dao.Config"%>
 <!DOCTYPE html>
-<%@ include file="config.jsp" %>
+<%
+    Config email = new Config();
+    Config whatsapp = new Config();
+    Config whatsappLink = new Config();
+    Config mobilePhone = new Config();
+%>
 
 <html lang="zxx">
 
