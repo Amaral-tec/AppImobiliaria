@@ -11,7 +11,7 @@
                             <img src="img/blog/blog-1.jpg" alt="">
                         </div>
                         <div class="bi-text">
-                            <h4><a href="./blog-details.html">what3words: The app changing real estate and construction forever</a></h4>
+                            <h4><a href="./blog-details.jsp">what3words: The app changing real estate and construction forever</a></h4>
                             <ul>
                                 <li>by <span>Jonathan Doe</span></li>
                                 <li>Seb 24, 2019</li>
@@ -26,7 +26,7 @@
                             <img src="img/blog/blog-2.jpg" alt="">
                         </div>
                         <div class="bi-text">
-                            <h5><a href="./blog-details.html">what3words: The app changing real estate and construction forever</a></h5>
+                            <h5><a href="./blog-details.jsp">what3words: The app changing real estate and construction forever</a></h5>
                             <ul>
                                 <li>by <span>Jonathan Doe</span></li>
                                 <li>Seb 24, 2019</li>
@@ -41,7 +41,7 @@
                             <img src="img/blog/blog-3.jpg" alt="">
                         </div>
                         <div class="bi-text">
-                            <h5><a href="./blog-details.html">what3words: The app changing real estate and construction forever</a></h5>
+                            <h5><a href="./blog-details.jsp">what3words: The app changing real estate and construction forever</a></h5>
                             <ul>
                                 <li>by <span>Jonathan Doe</span></li>
                                 <li>Seb 24, 2019</li>
@@ -56,7 +56,7 @@
                             <img src="img/blog/blog-4.jpg" alt="">
                         </div>
                         <div class="bi-text">
-                            <h5><a href="./blog-details.html">what3words: The app changing real estate and construction forever</a></h5>
+                            <h5><a href="./blog-details.jsp">what3words: The app changing real estate and construction forever</a></h5>
                             <ul>
                                 <li>by <span>Jonathan Doe</span></li>
                                 <li>Seb 24, 2019</li>
@@ -71,7 +71,7 @@
                             <img src="img/blog/blog-5.jpg" alt="">
                         </div>
                         <div class="bi-text">
-                            <h5><a href="./blog-details.html">what3words: The app changing real estate and construction forever</a></h5>
+                            <h5><a href="./blog-details.jsp">what3words: The app changing real estate and construction forever</a></h5>
                             <ul>
                                 <li>by <span>Jonathan Doe</span></li>
                                 <li>Seb 24, 2019</li>

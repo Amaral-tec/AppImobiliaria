@@ -20,5 +20,16 @@ public class Config {
     String banco = "imobiliaria";
     String usuario = "root";
     String senha = "";
+    
+    
+  /*  @Override
+    public String toString() {
+        return "Config{" +
+                "email='" + email + '\'' +
+                ", whatsapp=" + whatsapp +
+                ", mobilePhone=" + mobilePhone +
+                ", whatsappLink='" + whatsappLink + '\'' +
+                '}';
+    } */
 
 }

@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/img/team/team-1.png</file>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/scripts.jsp</file>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/index.jsp</file>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/search.jsp</file>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/img/categories/cat-1.jpg</file>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/img/agents/agent-2.png</file>
-            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/img/agents/agent-1.png</file>
+            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/header.jsp</file>
+            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/web/sistema/index.jsp</file>
+            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/src/java/dao/Config.java</file>
+            <file>file:/C:/Users/leandro.amaral/Documents/NetBeansProjects/imobiliaria/src/java/dao/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>
