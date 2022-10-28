@@ -1,10 +1,31 @@
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
-<%@page import="dao.ConnectionFactory"%>
+<%@page import="dao.*"%>
+
+
+<%
+    String email = new Config().email;
+%>
 
 <%
     Statement st = null;
     ResultSet rs = null;
+
+    //Verificar se tem usuário no DB
+    try {
+
+        st = new ConnectionFactory().conectar().createStatement();
+        rs = st.executeQuery("SELECT * FROM tb_usuarios");
+        out.print(rs.last());
+        if (rs.last() == false) {
+            //Criar o usuário ADMINISTRADOR caso não exista
+            String email = new Config().email;
+            st.executeUpdate("INSERT into tb_usuarios (nome, cpf, email, senha, nivel) values ('Administrador', '00000000000', '" + email + "', '123', 'admin')");
+        }
+    } catch (Exception e) {
+        out.print(e);
+    }
+
 %>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -32,7 +53,7 @@
             <div class="middle">
                 <div id="login">
 
-                    <form action="javascript:void(0);" method="get">
+                    <form action="javascript:void(0);" method="post">
 
                         <fieldset class="clearfix">
 
@@ -44,12 +65,13 @@
                                 <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Logar"></span>
                             </div>
 
-                            <p align="center" class="texto-alerta mt-2">
-                                <%
+                            <p align="center" class="texto-alerta">
+                                <%                                    
                                     String email = request.getParameter("email");
                                     String senha = request.getParameter("senha");
                                     String nomeUsuario = "";
                                     String cpfUsuario = "";
+                                    String nivelUsuario = "";
 
                                     String user = "", pass = "";
                                     int i = 0;
@@ -57,12 +79,13 @@
                                     try {
 
                                         st = new ConnectionFactory().conectar().createStatement();
-                                        rs = st.executeQuery("SELECT * FROM usuarios where email = '" + email + "' and senha = '" + senha + "'");
+                                        rs = st.executeQuery("SELECT * FROM tb_usuarios where email = '" + email + "' and senha = '" + senha + "'");
                                         while (rs.next()) {
                                             user = rs.getString(4);
                                             pass = rs.getString(5);
                                             nomeUsuario = rs.getString(2);
                                             cpfUsuario = rs.getString(3);
+                                            nivelUsuario = rs.getString(6);
                                             rs.last();
                                             i = rs.getRow();
                                         }
@@ -70,7 +93,8 @@
                                         out.print(e);
                                     }
 
-                                    if (email == null || senha == null) {
+                                    if (email == null || senha
+                                            == null) {
                                         out.println("Preencha os Dados");
 
                                     } else {
@@ -78,23 +102,39 @@
                                         if (i > 0) {
                                             session.setAttribute("nomeUsuario", nomeUsuario);
                                             session.setAttribute("cpfUsuario", cpfUsuario);
-                                            response.sendRedirect("../index.jsp");
-                                        } else {
-                                            out.println("Dados Incorretos");
+                                            session.setAttribute("nivelUsuario", nivelUsuario);
+                                            if (nivelUsuario.equals(1)) {
+                                                response.sendRedirect("../painel-admin");
+                                            }
+                                            if (nivelUsuario.equals(2)) {
+                                                response.sendRedirect("../painel-corretor");
+                                            }
+
+                                            if (nivelUsuario.equals(3)) {
+                                                response.sendRedirect("../painel-tesouraria");
+                                            } else {
+                                                out.println("Dados Incorretos");
+                                            }
                                         }
-                                    }
                                 %> 
                             </p>
 
                         </fieldset>
                         <div class="clearfix"></div>
                     </form>
+
                     <div class="clearfix"></div>
+
                 </div> <!-- end login -->
-                <div class="logo">IMOB
+                <div class="logo">
+
+                    <span class="d-none d-md-block">IMOB</span>
+
                     <div class="clearfix"></div>
                 </div>
+
             </div>
         </center>
     </div>
+
 </div>

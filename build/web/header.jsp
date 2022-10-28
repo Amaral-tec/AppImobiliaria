@@ -1,10 +1,11 @@
-<%@page import="dao.Config"%>
+
 <!DOCTYPE html>
+<%@page import="dao.Config"%>
 <%
-    Config email = new Config();
-    Config whatsapp = new Config();
-    Config whatsappLink = new Config();
-    Config mobilePhone = new Config();
+    String email = new Config().email;
+    String whatsapp = new Config().whatsapp;
+    String whatsappLink = new Config().whatsappLink;
+    String mobilePhone = new Config().mobilePhone;
 %>
 
 <html lang="zxx">
@@ -74,7 +75,8 @@
 
         <!-- Header Section Begin -->
         <header class="header-section">
-            <span class="btn-logar"><a href="sistema" class="text-secondary"><i class="fa fa-unlock"></a></i></span>
+            <span class="btn-logar"><a href="sistema" class="text-secondary"><i class="fa fa-unlock d-none d-md-block"></a></i></span>
+            <span class="btn-logar-mobile"><a href="sistema" class="text-secondary"><i class="fa fa-unlock d-block d-sm-none"></a></i></span>
             <div class="hs-top">
                 <div class="container">
                     <div class="row">

@@ -1,5 +1,11 @@
 <jsp:include page="header.jsp" />
-<%@ include file="config.jsp" %>
+<%@page import="dao.Config"%>
+<%
+    String email = new Config().email;
+    String whatsapp = new Config().whatsapp;
+    String whatsappLink = new Config().whatsappLink;
+    String mobilePhone = new Config().mobilePhone;
+%>
 
 
 <!-- Contact Form Section Begin -->

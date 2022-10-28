@@ -22,8 +22,36 @@ public class ConnectionFactory {
 
             //localhost
             return DriverManager.getConnection(con);
+
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
+
+    /* private static Connection connection;
+
+    private ConnectionFactory(Connection connection) {
+
+    }
+
+    public static Connection connection() throws SQLException {
+        if (connection == null) {
+            connection = initConnection();
+            return connection;
+        } else if (connection.isClosed()) {
+            connection = initConnection();
+            return connection;
+        } else {
+            return connection;
+        }
+    }
+
+    private static Connection initConnection() {
+        try {
+            return DriverManager.getConnection(
+            "jdbc:mysql://localhost/imobiliaria?useTimezone=true&serverTimezone=UTC&user=root&password=");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    } */
 }
