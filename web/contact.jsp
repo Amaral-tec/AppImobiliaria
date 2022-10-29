@@ -24,7 +24,7 @@
                     <form action="#" class="cc-form">
                         <div class="group-input">
                             <input type="text" placeholder="Nome">
-                            <input id="telefone" type="text" placeholder="Telefone">
+                            <input id="mobilePhone" type="text" placeholder="Telefone">
                             <input type="email" placeholder="Email">
 
                         </div>

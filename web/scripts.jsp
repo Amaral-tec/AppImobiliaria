@@ -1,3 +1,4 @@
+
 <!-- Script para mostrar div do slider aluguel/compra -->
 <script type="text/javascript">
     $(document).ready(function () {

@@ -18,9 +18,6 @@
     
 </div>
 
-
-
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 
@@ -52,7 +49,7 @@
                             String id = "";
 
                             st = new ConnectionFactory().conectar().createStatement();
-                            rs = st.executeQuery("SELECT * FROM corretores order by nome asc ");
+                            rs = st.executeQuery("SELECT * FROM tb_corretores order by nome asc ");
                             while (rs.next()) {
                                 nome = rs.getString(2);
                                 cpf = rs.getString(3);
@@ -82,17 +79,11 @@
                         }
                     %>
 
-
-
-
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="modalDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,7 +93,7 @@
                 <%
                     String nome = "";
                     String cpf = "";
-                    String telefone = "";
+                    String mobilePhone = "";
                     String email = "";
                     String endereco = "";
                     String imagem = "sem-foto.jpg";
@@ -119,7 +110,7 @@
                             while (rs.next()) {
                                 nome = rs.getString(2);
                                 cpf = rs.getString(3);
-                                telefone = rs.getString(4);
+                                mobilePhone = rs.getString(4);
                                 email = rs.getString(5);
                                 endereco = rs.getString(6);
                                 imagem = rs.getString(7);
@@ -158,29 +149,21 @@
 
                             </div>
 
-
-
-
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
-
-
 
                                     <div class="form-group">
                                         <label >Email</label>
                                         <input value="<%=email%>" type="email" class="form-control" id="email" name="email" placeholder="Email">
                                     </div>
 
-
                                 </div>
                                 <div class="col-md-6 col-sm-12">
 
                                     <div class="form-group">
                                         <label >Telefone</label>
-                                        <input value="<%=telefone%>" type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone">
+                                        <input value="<%=mobilePhone%>" type="text" class="form-control" id="mobilePhone" name="mobilePhone" placeholder="Telefone">
                                     </div>
-
-
                                 </div>
 
                             </div>
@@ -194,23 +177,17 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-md-6 col-sm-12 form-group">
                                     <label>Imagem</label>
                                     <input value="<%=imagem%>" type="file" class="form-control-file" id="imagem" name="imagem[]" onchange="carregarImg();">
 
                                 </div>
 
-
-
                             </div>
 
                         </div>
 
                         <div class="col-md-4">
-
-
 
                             <div class="col-md-12">
                                 <img src="../img/profiles/<%=imagem%>" alt="Carregue sua Imagem" id="target" width="200" height="200">
@@ -224,20 +201,10 @@
                             </div>
                         </small> 
 
-
                     </div>
-
-
-
-
-
-
-
 
                 </div>
                 <div class="modal-footer">
-
-
 
                     <input value="<%=id%>" type="hidden" name="txtid" id="txtid">
                     <input value="<%=cpf%>" type="hidden" name="antigo" id="antigo">
@@ -249,10 +216,6 @@
         </div>
     </div>
 </div>
-
-                    
-                    
-                    
 
 <div class="modal" id="modal-deletar" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

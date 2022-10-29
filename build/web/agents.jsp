@@ -1,7 +1,5 @@
 <jsp:include page="header.jsp" />
 
-
-
 <!-- Agent Section Begin -->
 <section class="agent-section spad">
     <div class="container">

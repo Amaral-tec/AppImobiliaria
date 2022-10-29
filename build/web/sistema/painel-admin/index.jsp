@@ -21,7 +21,7 @@
 
     try {
         st = new ConnectionFactory().conectar().createStatement();
-        rs = st.executeQuery("SELECT * FROM usuarios where id = '" + idUsuario + "' ");
+        rs = st.executeQuery("SELECT * FROM tb_usuarios where id = '" + idUsuario + "' ");
         while (rs.next()) {
             email = rs.getString(4);
             senha = rs.getString(5);
@@ -37,7 +37,6 @@
     if (nivelUsuario == null || !nivelUsuario.equals("admin")) {
         response.sendRedirect("../index.jsp");
     }
-
 
 %>
 
@@ -58,7 +57,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="Hugo Vasconcelos">
+        <meta name="author" content="Leandro Amaral">
 
         <title>Painel Administrativo</title>
 
@@ -72,11 +71,12 @@
 
         <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
 
         <!-- Bootstrap core JavaScript-->
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 
     </head>
 
@@ -97,8 +97,6 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
-
-
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -106,8 +104,6 @@
                 <div class="sidebar-heading">
                     Cadastros
                 </div>
-
-
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -148,8 +144,6 @@
                     Pesquisar
                 </div>
 
-
-
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
                     <a class="nav-link" href="charts.html">
@@ -189,12 +183,8 @@
                             <i class="fa fa-bars"></i>
                         </button>
 
-
-
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
-
-
 
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
@@ -243,8 +233,6 @@
                 </div>
                 <!-- End of Main Content -->
 
-
-
             </div>
             <!-- End of Content Wrapper -->
 
@@ -256,9 +244,6 @@
             <i class="fas fa-angle-up"></i>
         </a>
 
-
-
-
         <!--  Modal Perfil-->
         <div class="modal fade" id="ModalPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -269,8 +254,6 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-
-
 
                     <form id="form-perfil" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
@@ -309,20 +292,14 @@
                                 </div>
                             </div> 
 
-
-
                             <small>
                                 <div id="mensagem" class="mr-4">
 
                                 </div>
                             </small>
 
-
-
                         </div>
                         <div class="modal-footer">
-
-
 
                             <input value="<%=idUsuario%>" type="hidden" name="txtid" id="txtid">
                             <input value="<%=cpf%>" type="hidden" name="antigo" id="antigo">
@@ -331,7 +308,6 @@
                             <button type="submit" name="btn-salvar-perfil" id="btn-salvar-perfil" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
-
 
                 </div>
             </div>
@@ -359,11 +335,7 @@
         <script src="../js/demo/datatables-demo.js"></script>
 
     </body>
-
 </html>
-
-
-
 
 <!--SCRIPT PARA SUBIR IMAGEM PARA O SERVIDOR -->
 <script type="text/javascript">
@@ -388,9 +360,6 @@
                                             }
 
 </script>
-
-
-
 
 <!--AJAX PARA INSERÇÃO E EDIÇÃO DOS DADOS COM IMAGEM -->
 <script type="text/javascript">
@@ -441,6 +410,4 @@
 </script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-
-<script src="../../js/mascara.js"></script>
+<jsp:include page="scripts.jsp" />

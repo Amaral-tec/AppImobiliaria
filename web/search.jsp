@@ -11,7 +11,7 @@
                 <div class="change-btn">
                     <div class="cb-item">
                         <label for="cb-rent" class="active">
-                            Aluguel
+                            Alugar
                             <input type="radio" id="cb-rent">
                         </label>
                     </div>
@@ -172,4 +172,3 @@
     </div>
 </section>
 <!-- Search Section End -->
-

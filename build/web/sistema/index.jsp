@@ -1,33 +1,29 @@
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
-<%@page import="util.*"%> 
+<%@page import="dao.*"%> 
 
 
-<%    Statement st = null;
+<%
+    Statement st = null;
     ResultSet rs = null;
 
     //verificar se existe usuário cadastrado no BD
     try {
 
-        st = new Conexao().conectar().createStatement();
-        rs = st.executeQuery("SELECT * FROM usuarios");
-            
-            if(rs.last() == false){
-                //CRIAR O USUÁRIO CASO NÃO EXISTA
-                String email = new Config().email;
-                st.executeUpdate("INSERT into usuarios (nome, cpf, email, senha, nivel, foto) values ('Administrador', '000.000.000-00' , '" + email + "' , '123', 'admin', 'sem-foto.jpg')");
-            }
-            
-        
+        st = new ConnectionFactory().conectar().createStatement();
+        rs = st.executeQuery("SELECT * FROM tb_usuarios");
+
+        if (rs.last() == false) {
+            //CRIAR O USUÁRIO CASO NÃO EXISTA
+            String email = new Config().email;
+            st.executeUpdate("INSERT into tb_usuarios (nome, cpf, email, senha, nivel, foto) values ('Administrador', '000.000.000-00' , '" + email + "' , '123', 'admin', 'sem-foto.jpg')");
+        }
+
     } catch (Exception e) {
         out.print(e);
     }
 
-
 %>
-
-
-
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -40,13 +36,12 @@
 <!-- Include the above in your HEAD tag -->
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/login.css" type="text/css">
+<link rel="stylesheet" href="css/login.css" type="text/css">
 <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 
-<link rel="shortcut icon" href="../img/favicon1.ico" type="image/x-icon">
-<link rel="icon" href="../img/favicon1.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 <div class="main">
-
 
     <div class="container">
         <center>
@@ -66,23 +61,20 @@
                                 <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Logar"></span>
                             </div>
 
-                            <p align="center" class="texto-alerta mt-2">
-                                <%                                    String email = request.getParameter("email");
+                            <p align="center" class="texto-alerta mt-2">                                
+                                <%  String email = request.getParameter("email");
                                     String senha = request.getParameter("senha");
                                     String nomeUsuario = "";
                                     String cpfUsuario = "";
                                     String nivelUsuario = "";
                                     String fotoUsuario = "";
                                     String idUsuario = "";
-                                    
 
                                     String user = "", pass = "";
                                     int i = 0;
-
                                     try {
-
-                                        st = new Conexao().conectar().createStatement();
-                                        rs = st.executeQuery("SELECT * FROM usuarios where email = '" + email + "' and senha = '" + senha + "'");
+                                        st = new ConnectionFactory().conectar().createStatement();
+                                        rs = st.executeQuery("SELECT * FROM tb_usuarios where email = '" + email + "' and senha = '" + senha + "'");
                                         while (rs.next()) {
                                             user = rs.getString(4);
                                             pass = rs.getString(5);
@@ -97,36 +89,28 @@
                                     } catch (Exception e) {
                                         out.print(e);
                                     }
-
                                     if (email == null || senha == null) {
                                         out.println("Preencha os Dados");
-
                                     } else {
-
                                         if (i > 0) {
                                             session.setAttribute("nomeUsuario", nomeUsuario);
                                             session.setAttribute("cpfUsuario", cpfUsuario);
                                             session.setAttribute("nivelUsuario", nivelUsuario);
                                             session.setAttribute("fotoUsuario", fotoUsuario);
                                             session.setAttribute("idUsuario", idUsuario);
-                                            if(nivelUsuario.equals("admin")){
-                                               response.sendRedirect("painel-admin"); 
+                                            if (nivelUsuario.equals("admin")) {
+                                                response.sendRedirect("painel-admin");
                                             }
-                                            
-                                             if(nivelUsuario.equals("corretor")){
-                                               response.sendRedirect("painel-corretor"); 
+                                            if (nivelUsuario.equals("corretor")) {
+                                                response.sendRedirect("painel-corretor");
                                             }
-                                             
-                                             if(nivelUsuario.equals("tesoureiro")){
-                                               response.sendRedirect("painel-tesouraria"); 
+                                            if (nivelUsuario.equals("tesoureiro")) {
+                                                response.sendRedirect("painel-tesouraria");
                                             }
-                                            
                                         } else {
                                             out.println("Dados Incorretos");
                                         }
                                     }
-
-
                                 %> 
                             </p>
 
@@ -138,7 +122,7 @@
 
                 </div> <!-- end login -->
                 <div class="logo">
-                    
+
                     <span class="d-none d-md-block">IMOB</span>
 
                     <div class="clearfix"></div>

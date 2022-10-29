@@ -3,7 +3,7 @@ package dao;
 
 /**
  *
- * @author Amaral
+ * @author Leandro.Amaral
  */
 public class Config {
 public String email = "projetoimobiliariahv@gmail.com";

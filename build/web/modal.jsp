@@ -14,7 +14,6 @@
                         <input type="text" placeholder="Nome">
                         <input id="mobilePhone" type="text" placeholder="Telefone">
                         <input type="email" placeholder="Email">
-
                     </div>
                     <textarea placeholder="Comentário"></textarea>
                     <div align="right">

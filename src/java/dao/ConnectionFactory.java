@@ -27,6 +27,7 @@ public class ConnectionFactory {
            //localhost
            return DriverManager.getConnection(con); 
            
+           //hospedada
            
         }catch(ClassNotFoundException e){
             throw new RuntimeException(e);
