@@ -1,11 +1,13 @@
 <jsp:include page="header.jsp" />
-<%@page import="dao.Config"%>
+<%@page import="dao.Config"%> 
 <%
+
     String email = new Config().email;
     String whatsapp = new Config().whatsapp;
-    String whatsappLink = new Config().whatsappLink;
     String mobilePhone = new Config().mobilePhone;
+    String whatsappLink = new Config().whatsappLink;
 %>
+
 
 
 <!-- Contact Form Section Begin -->
@@ -22,7 +24,7 @@
                     <form action="#" class="cc-form">
                         <div class="group-input">
                             <input type="text" placeholder="Nome">
-                            <input id="mobilePhone" type="text" placeholder="Telefone">
+                            <input id="telefone" type="text" placeholder="Telefone">
                             <input type="email" placeholder="Email">
 
                         </div>
@@ -58,8 +60,8 @@
                         <div class="ci-text">
                             <h5>Telefones</h5>
                             <ul>
-                                <li><a class="text-dark" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=<%=whatsappLink %>"><i class="fa fa-whatsapp"></i> <%=whatsapp %> </a> </li>
-                                <li><%=mobilePhone %></li>
+                                <li><a class="text-dark" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=<%=whatsappLink%>"><i class="fa fa-whatsapp"></i> <%=whatsapp%> </a> </li>
+                                <li><%=mobilePhone%></li>
                             </ul>
                         </div>
                     </div>
@@ -69,7 +71,7 @@
                         </div>
                         <div class="ci-text">
                             <h5>Email</h5>
-                            <p><%=email %></p>
+                            <p><%=email%></p>
                         </div>
                     </div>
                 </div>

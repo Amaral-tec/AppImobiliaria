@@ -62,7 +62,7 @@
                     </div>
                     <div id="roomsize-range" class="slider"></div>
                 </div>
-                <!-- para alterar o intervalo edite o arquivo main.js -->
+                <!-- para alterar o intervalo edite o arquivo ../js/main -->
                 <div id="priceRent" class="price-range-wrap sm-width">
                     <div class="price-text">
                         <label for="priceRange">Valor:</label>

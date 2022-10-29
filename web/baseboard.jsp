@@ -1,9 +1,9 @@
-<%@page import="dao.Config"%>
+<%@page import="dao.Config"%> 
 <%
     String email = new Config().email;
     String whatsapp = new Config().whatsapp;
-    String whatsappLink = new Config().whatsappLink;
     String mobilePhone = new Config().mobilePhone;
+    String whatsappLink = new Config().whatsappLink;
 %>
 
 <!-- Footer Section Begin -->
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-6">    
+            <div class="col-lg-2 col-sm-6">        
             </div>
             <div class="col-lg-2 col-sm-6">
                 <div class="fs-widget">
@@ -43,11 +43,11 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="fs-widget">
-                    <h5>Newsletter</h5>
-                    <p>Receba informações importantes sobre o mundo imobiliário.</p>
+                    <h5>Ofertas</h5>
+                    <p>Deseja Receber ofertas de Imóveis?</p>
                     <form action="#" class="subscribe-form">
                         <input type="text" placeholder="Email">
-                        <button type="submit" class="site-btn">Inscreva-se</button>
+                        <button type="submit" class="site-btn">Inscrever-se</button>
                     </form>
                 </div>
             </div>

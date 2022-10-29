@@ -1,32 +1,33 @@
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
-<%@page import="dao.*"%>
+<%@page import="util.*"%> 
 
 
-<%
-    String email = new Config().email;
-%>
-
-<%
-    Statement st = null;
+<%    Statement st = null;
     ResultSet rs = null;
 
-    //Verificar se tem usuário no DB
+    //verificar se existe usuário cadastrado no BD
     try {
 
-        st = new ConnectionFactory().conectar().createStatement();
-        rs = st.executeQuery("SELECT * FROM tb_usuarios");
-        out.print(rs.last());
-        if (rs.last() == false) {
-            //Criar o usuário ADMINISTRADOR caso não exista
-            String email = new Config().email;
-            st.executeUpdate("INSERT into tb_usuarios (nome, cpf, email, senha, nivel) values ('Administrador', '00000000000', '" + email + "', '123', 'admin')");
-        }
+        st = new Conexao().conectar().createStatement();
+        rs = st.executeQuery("SELECT * FROM usuarios");
+            
+            if(rs.last() == false){
+                //CRIAR O USUÁRIO CASO NÃO EXISTA
+                String email = new Config().email;
+                st.executeUpdate("INSERT into usuarios (nome, cpf, email, senha, nivel, foto) values ('Administrador', '000.000.000-00' , '" + email + "' , '123', 'admin', 'sem-foto.jpg')");
+            }
+            
+        
     } catch (Exception e) {
         out.print(e);
     }
 
+
 %>
+
+
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -42,9 +43,8 @@
 <link rel="stylesheet" href="../css/login.css" type="text/css">
 <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 
-<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-
+<link rel="shortcut icon" href="../img/favicon1.ico" type="image/x-icon">
+<link rel="icon" href="../img/favicon1.ico" type="image/x-icon">
 <div class="main">
 
 
@@ -53,7 +53,7 @@
             <div class="middle">
                 <div id="login">
 
-                    <form action="javascript:void(0);" method="post">
+                    <form action="" method="post">
 
                         <fieldset class="clearfix">
 
@@ -61,31 +61,36 @@
                             <p><span class="fa fa-lock"></span><input type="password" name="senha" Placeholder="Senha" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
 
                             <div>
-                                <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Recuperar Senha</a></span>
+                                <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Recuperar
+                                        Senha?</a></span>
                                 <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Logar"></span>
                             </div>
 
-                            <p align="center" class="texto-alerta">
-                                <%                                    
-                                    String email = request.getParameter("email");
+                            <p align="center" class="texto-alerta mt-2">
+                                <%                                    String email = request.getParameter("email");
                                     String senha = request.getParameter("senha");
                                     String nomeUsuario = "";
                                     String cpfUsuario = "";
                                     String nivelUsuario = "";
+                                    String fotoUsuario = "";
+                                    String idUsuario = "";
+                                    
 
                                     String user = "", pass = "";
                                     int i = 0;
 
                                     try {
 
-                                        st = new ConnectionFactory().conectar().createStatement();
-                                        rs = st.executeQuery("SELECT * FROM tb_usuarios where email = '" + email + "' and senha = '" + senha + "'");
+                                        st = new Conexao().conectar().createStatement();
+                                        rs = st.executeQuery("SELECT * FROM usuarios where email = '" + email + "' and senha = '" + senha + "'");
                                         while (rs.next()) {
                                             user = rs.getString(4);
                                             pass = rs.getString(5);
                                             nomeUsuario = rs.getString(2);
                                             cpfUsuario = rs.getString(3);
                                             nivelUsuario = rs.getString(6);
+                                            fotoUsuario = rs.getString(7);
+                                            idUsuario = rs.getString(1);
                                             rs.last();
                                             i = rs.getRow();
                                         }
@@ -93,8 +98,7 @@
                                         out.print(e);
                                     }
 
-                                    if (email == null || senha
-                                            == null) {
+                                    if (email == null || senha == null) {
                                         out.println("Preencha os Dados");
 
                                     } else {
@@ -103,19 +107,26 @@
                                             session.setAttribute("nomeUsuario", nomeUsuario);
                                             session.setAttribute("cpfUsuario", cpfUsuario);
                                             session.setAttribute("nivelUsuario", nivelUsuario);
-                                            if (nivelUsuario.equals(1)) {
-                                                response.sendRedirect("../painel-admin");
+                                            session.setAttribute("fotoUsuario", fotoUsuario);
+                                            session.setAttribute("idUsuario", idUsuario);
+                                            if(nivelUsuario.equals("admin")){
+                                               response.sendRedirect("painel-admin"); 
                                             }
-                                            if (nivelUsuario.equals(2)) {
-                                                response.sendRedirect("../painel-corretor");
+                                            
+                                             if(nivelUsuario.equals("corretor")){
+                                               response.sendRedirect("painel-corretor"); 
                                             }
-
-                                            if (nivelUsuario.equals(3)) {
-                                                response.sendRedirect("../painel-tesouraria");
-                                            } else {
-                                                out.println("Dados Incorretos");
+                                             
+                                             if(nivelUsuario.equals("tesoureiro")){
+                                               response.sendRedirect("painel-tesouraria"); 
                                             }
+                                            
+                                        } else {
+                                            out.println("Dados Incorretos");
                                         }
+                                    }
+
+
                                 %> 
                             </p>
 
@@ -127,7 +138,7 @@
 
                 </div> <!-- end login -->
                 <div class="logo">
-
+                    
                     <span class="d-none d-md-block">IMOB</span>
 
                     <div class="clearfix"></div>
@@ -138,3 +149,4 @@
     </div>
 
 </div>
+

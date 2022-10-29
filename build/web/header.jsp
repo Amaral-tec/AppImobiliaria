@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
-<%@page import="dao.Config"%>
+<%@page import="dao.Config"%> 
 <%
+
     String email = new Config().email;
     String whatsapp = new Config().whatsapp;
-    String whatsappLink = new Config().whatsappLink;
     String mobilePhone = new Config().mobilePhone;
+    String whatsappLink = new Config().whatsappLink;
 %>
+
 
 <html lang="zxx">
 
@@ -34,8 +35,9 @@
         <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
 
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+        <link rel="shortcut icon" href="img/favicon1.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon1.ico" type="image/x-icon">
 
     </head>
 
@@ -63,20 +65,22 @@
                     <li><a class="text-dark" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=<%=whatsappLink%>"><i class="fa fa-whatsapp"></i> <%=whatsapp%> </a> <span><%=mobilePhone%></span></li>
                 </ul>
                 <a href="property.jsp" class="hw-btn">Ver Imóveis</a>
+
             </div>
             <div class="om-social">
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
                 <a href="#"><i class="fa fa-youtube-play"></i></a>
                 <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-pinterest-p"></i></a>
             </div>
         </div>
         <!-- Offcanvas Menu Wrapper End -->
 
         <!-- Header Section Begin -->
         <header class="header-section">
-            <span class="btn-logar"><a href="sistema" class="text-secondary"><i class="fa fa-unlock d-none d-md-block"></a></i></span>
-            <span class="btn-logar-mobile"><a href="sistema" class="text-secondary"><i class="fa fa-unlock d-block d-sm-none"></a></i></span>
+            <span class="btn-logar"><a href="sistema" target="_blank" class="text-secondary"><i class="fa fa-unlock d-none d-md-block"></a></i></span>
+            <span class="btn-logar-mobile"><a href="sistema" target="_blank" class="text-secondary"><i class="fa fa-unlock d-block d-sm-none"></a></i></span>
             <div class="hs-top">
                 <div class="container">
                     <div class="row">
@@ -92,6 +96,7 @@
                                     <li><a class="text-dark" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=<%=whatsappLink%>"><i class="fa fa-whatsapp"></i> <%=whatsapp%> </a> <span><%=mobilePhone%></span></li>
                                 </ul>
                                 <a href="property.jsp" class="hw-btn">Ver Imóveis</a>
+
                             </div>
                         </div>
                     </div>

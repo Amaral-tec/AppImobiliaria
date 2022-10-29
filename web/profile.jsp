@@ -76,4 +76,3 @@
 </div>
 
 <!-- Property Section End -->
-

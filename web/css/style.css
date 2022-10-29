@@ -4296,10 +4296,12 @@ li .richText-btn[data-command=toggleCode] {
     position:absolute;
     right:15px;
     top:10px;
+    
 }
 
 .btn-logar-mobile{
     position:absolute;
     left:15px;
     top:10px;
+    
 }
