@@ -1,6 +1,9 @@
 /**
  *
  * @author leandro.amaral
+ * 
+ * lib commons-connector-java-8.08.18.jar
+ * lib commons-io-2.4.jar
  */
 
 package dao;
@@ -19,10 +22,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-/**
- *
- * @author Leandro.Amaral
- */
 public class Upload {
 
     private String folderUpload;
