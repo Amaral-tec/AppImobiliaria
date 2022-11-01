@@ -1,6 +1,6 @@
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
-<%@page import="util.Conexao"%>  
+<%@page import="dao.ConnectionFactory"%>  
 
 <% String id = request.getParameter("id"); %>
 
@@ -10,7 +10,7 @@
 
     try {
         
-        st = new Conexao().conectar().createStatement();
+        st = new ConnectionFactory().conectar().createStatement();
         
 
         //recuperar o cpf do usuario para exclusão

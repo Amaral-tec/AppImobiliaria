@@ -40,11 +40,11 @@
         try {
             //verificar se o campo é vazio
             if (nome.equals("")) {
-                out.print("Preencha o Campo Nome!!");
+                out.print("Preencha o Campo Nome!");
                 return;
             }
             if (cpf.equals("")) {
-                out.print("Preencha o Campo CPF!!");
+                out.print("Preencha o Campo CPF!");
                 return;
             }
             st = new ConnectionFactory().conectar().createStatement();
@@ -64,9 +64,13 @@
             } else {
                 st.executeUpdate("UPDATE tb_usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "', senha = '" + senha + "', foto = '" + imagem + "' WHERE id = '" + id + "'");
             }
-            out.print("Salvo com Sucesso!!");
+            out.print("Salvo com Sucesso!");
         } catch (Exception e) {
             out.print(e);
         }
     }
 %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script src="../../../js/mascara.js"></script>

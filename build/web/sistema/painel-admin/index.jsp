@@ -13,22 +13,21 @@
     String idUsuario = (String) session.getAttribute("idUsuario");
     String nivelUsuario = (String) session.getAttribute("nivelUsuario");
 
+    String nome = "";
+    String cpf = "";
     String email = "";
     String senha = "";
-    String nome = "";
     String img = "";
-    String cpf = "";
 
     try {
         st = new ConnectionFactory().conectar().createStatement();
         rs = st.executeQuery("SELECT * FROM tb_usuarios where id = '" + idUsuario + "' ");
         while (rs.next()) {
-            email = rs.getString(4);
-            senha = rs.getString(5);
             nome = rs.getString(2);
             cpf = rs.getString(3);
+            email = rs.getString(4);
+            senha = rs.getString(5);
             img = rs.getString(7);
-
         }
     } catch (Exception e) {
         out.print(e);
@@ -42,9 +41,11 @@
 
 <%//variaveis para o menu
     String pag = request.getParameter("pag");
-    String menu1 = "corretores";
-    String menu2 = "tesoureiros";
-    String menu3 = "cidade";
+    String menu1 = "cadastropessoa";
+    String menu2 = "cadastropessoa";
+    String menu3 = "cadastroimovel";
+    String menu4 = "cadastroimovel";
+    String menu5 = "cadastroimovel";
 
 %>
 
@@ -112,9 +113,8 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">PESSOAS:</h6>
-                            <a class="collapse-item" href="index.jsp?pag=<%=menu1%>">Corretores</a>
-                            <a class="collapse-item" href="index.jsp?pag=<%=menu2%>">Tesoureiros</a>
+                            <a class="collapse-item" href="index.jsp?pag=<%=menu1%>">Física</a>
+                            <a class="collapse-item" href="index.jsp?pag=<%=menu2%>">Jurídica</a>
                         </div>
                     </div>
                 </li>
@@ -123,14 +123,13 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-home"></i>
-                        <span>Opções Imóveis</span>
+                        <span>Imóveis</span>
                     </a>
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Dados Imóveis:</h6>
-                            <a class="collapse-item" href="index.jsp?pag=<%=menu3%>">Cidade</a>
-                            <a class="collapse-item" href="utilities-border.html">Bairro</a>
-                            <a class="collapse-item" href="utilities-animation.html">Tipo</a>
+                            <a class="collapse-item" href="index.jsp?pag=<%=menu3%>">Residencial</a>
+                            <a class="collapse-item" href="index.jsp?pag=<%=menu4%>">Comercial</a>
+                            <a class="collapse-item" href="index.jsp?pag=<%=menu5%>">Lote</a>
 
                         </div>
                     </div>
@@ -377,10 +376,8 @@
 
                 $('#mensagem').removeClass()
 
-                if (mensagem.trim() == "Salvo com Sucesso!!") {
+                if (mensagem.trim() == "Salvo com Sucesso!") {
                     $('#mensagem').addClass('text-success');
-                    //$('#nome').val('');
-                    //$('#cpf').val('');
                     $('#btn-fechar').click();
                     window.location = "index.jsp";
 
@@ -410,4 +407,3 @@
 </script>
 
 
-<jsp:include page="scripts.jsp" />

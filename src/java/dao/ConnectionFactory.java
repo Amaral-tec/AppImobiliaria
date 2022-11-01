@@ -9,7 +9,7 @@ import java.sql.*;
 import com.mysql.jdbc.Driver;
 /**
  *
- * @author Amaral
+ * @author Leandro.Amaral
  */
 public class ConnectionFactory {
     

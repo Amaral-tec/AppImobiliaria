@@ -40,7 +40,7 @@
         try {
             //verificar se o campo é vazio
             if (nome.equals("")) {
-                out.print("Preencha o Campo Nome teste!!");
+                out.print("Preencha o Campo Nome teste!");
                 return;
             }
             if (cpf.equals("")) {
@@ -63,14 +63,14 @@
             }
 
             if (id.equals("")) {
-                st.executeUpdate("INSERT into corretores (nome, cpf, telefone, email, endereco, foto) values ('" + nome + "', '" + cpf + "' , '" + telefone + "' , '" + email + "', '" + endereco + "', '" + imagem + "')");
+                st.executeUpdate("INSERT into corretores (nome, cpf, telefone, email, endereco, foto) values ('" + nome + "', '" + cpf + "' , '" + telefone + "' , '" + email + "', '" + imagem + "')");
                 st.executeUpdate("INSERT into usuarios (nome, cpf, email, senha, nivel, foto) values ('" + nome + "', '" + cpf + "', '" + email + "', '123', 'corretor', '" + imagem + "')");
             } else {
                 if (imagem.equals("sem-foto.jpg")) {
-                    st.executeUpdate("UPDATE corretores SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "', endereco = '" + endereco + "' WHERE id = '" + id + "'");
+                    st.executeUpdate("UPDATE corretores SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "' WHERE id = '" + id + "'");
                     st.executeUpdate("UPDATE usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "' WHERE cpf = '" + antigo + "'");
                 } else {
-                    st.executeUpdate("UPDATE corretores SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "', endereco = '" + endereco + "', foto = '" + imagem + "' WHERE id = '" + id + "'");
+                    st.executeUpdate("UPDATE corretores SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "' foto = '" + imagem + "' WHERE id = '" + id + "'");
                     st.executeUpdate("UPDATE usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "', foto = '" + imagem + "' WHERE cpf = '" + antigo + "'");
                 }
 

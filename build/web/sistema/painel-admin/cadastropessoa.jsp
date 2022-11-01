@@ -1,11 +1,9 @@
-<% String pag = "corretores";%>
+<% String pag = "cadastropessoa";%>
 
 <%@page import="dao.Upload" %>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page import="dao.ConnectionFactory"%>
-
-
 
 <%
     Statement st = null;
@@ -13,9 +11,9 @@
 %>
 
 <div class="row mt-4 mb-4">
-    <a type="button" class="btn-primary btn-sm ml-3 d-none d-md-block" href="index.jsp?pag=<%=pag%>&funcao=novo">Novo Corretor</a>
+    <a type="button" class="btn-primary btn-sm ml-3 d-none d-md-block" href="index.jsp?pag=<%=pag%>&funcao=novo">Novo Cadastro</a>
     <a type="button" class="btn-primary btn-sm ml-3 d-block d-sm-none" href="index.jsp?pag=<%=pag%>&funcao=novo">+</a>
-    
+
 </div>
 
 <!-- DataTales Example -->
@@ -28,11 +26,8 @@
                     <tr>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Telefone</th>
                         <th>Email</th>
-                        <th>Endereço</th>
-                        <th>Foto</th>
-                        <th>Ações</th>
+                        <th>Telefone</th>
                     </tr>
                 </thead>
 
@@ -42,31 +37,25 @@
                         try {
                             String nome = "";
                             String cpf = "";
-                            String telefone = "";
                             String email = "";
-                            String endereco = "";
-                            String imagem = "";
+                            String telefone = "";
                             String id = "";
 
                             st = new ConnectionFactory().conectar().createStatement();
-                            rs = st.executeQuery("SELECT * FROM tb_corretores order by nome asc ");
+                            rs = st.executeQuery("SELECT * FROM tb_usuarios order by nome asc ");
                             while (rs.next()) {
                                 nome = rs.getString(2);
                                 cpf = rs.getString(3);
-                                telefone = rs.getString(4);
-                                email = rs.getString(5);
-                                endereco = rs.getString(6);
-                                imagem = rs.getString(7);
+                                email = rs.getString(4);
+                                telefone = rs.getString(8);
                                 id = rs.getString(1);
                     %>
 
                     <tr>
                         <td><%=nome%></td>
                         <td><%=cpf%></td>
-                        <td><%=telefone%></td>
                         <td><%=email%></td>
-                        <td><%=endereco%></td>
-                        <td><img src="../img/profiles/<%=imagem%>" width="50px"></td>
+                        <td><%=telefone%></td>
                         <td>
                             <a href="index.jsp?pag=<%=pag%>&funcao=editar&id=<%=id%>" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
                             <a href="index.jsp?pag=<%=pag%>&funcao=excluir&id=<%=id%>" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
@@ -93,9 +82,8 @@
                 <%
                     String nome = "";
                     String cpf = "";
-                    String mobilePhone = "";
                     String email = "";
-                    String endereco = "";
+                    String mobilePhone = "";
                     String imagem = "sem-foto.jpg";
                     String id = "";
                     String titulo = "";
@@ -106,15 +94,13 @@
                         id = request.getParameter("id");
                         try {
                             st = new ConnectionFactory().conectar().createStatement();
-                            rs = st.executeQuery("SELECT * FROM corretores where id = '" + id + "' ");
+                            rs = st.executeQuery("SELECT * FROM tb_usuarios where id = '" + id + "' ");
                             while (rs.next()) {
                                 nome = rs.getString(2);
                                 cpf = rs.getString(3);
-                                mobilePhone = rs.getString(4);
-                                email = rs.getString(5);
-                                endereco = rs.getString(6);
+                                email = rs.getString(4);
+                                mobilePhone = rs.getString(8);
                                 imagem = rs.getString(7);
-
                             }
                         } catch (Exception e) {
                             out.print(e);
@@ -122,7 +108,6 @@
                     } else {
                         titulo = "Inserir Registro";
                     }
-
                 %>
                 <h5 class="modal-title" id="exampleModalLabel"><%=titulo%></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -146,69 +131,42 @@
                                         <input value="<%=cpf%>" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
-
                                     <div class="form-group">
                                         <label >Email</label>
                                         <input value="<%=email%>" type="email" class="form-control" id="email" name="email" placeholder="Email">
                                     </div>
-
                                 </div>
                                 <div class="col-md-6 col-sm-12">
-
                                     <div class="form-group">
                                         <label >Telefone</label>
                                         <input value="<%=mobilePhone%>" type="text" class="form-control" id="mobilePhone" name="mobilePhone" placeholder="Telefone">
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="row">
-
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label >Endereço</label>
-                                        <input value="<%=endereco%>" type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço">
-                                    </div>
-                                </div>
-
                                 <div class="col-md-6 col-sm-12 form-group">
                                     <label>Imagem</label>
                                     <input value="<%=imagem%>" type="file" class="form-control-file" id="imagem" name="imagem[]" onchange="carregarImg();">
-
                                 </div>
-
                             </div>
-
                         </div>
-
                         <div class="col-md-4">
-
                             <div class="col-md-12">
                                 <img src="../img/profiles/<%=imagem%>" alt="Carregue sua Imagem" id="target" width="200" height="200">
                             </div>
-
                         </div>
-
                         <small>
                             <div id="mensagem">
-
                             </div>
                         </small> 
-
                     </div>
-
                 </div>
                 <div class="modal-footer">
-
                     <input value="<%=id%>" type="hidden" name="txtid" id="txtid">
                     <input value="<%=cpf%>" type="hidden" name="antigo" id="antigo">
-
                     <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
                 </div>
@@ -227,20 +185,15 @@
                 </button>
             </div>
             <div class="modal-body">
-
                 <p>Deseja realmente Excluir este Registro?</p>
-
                 <div align="center" id="mensagem_excluir" class="">
-
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
                 <form method="post">
                     <%id = request.getParameter("id");%>
                     <input type="hidden" id="id"  name="id" value="<%=id%>" required>
-
                     <button type="button" id="btn-deletar" name="btn-deletar" class="btn btn-danger">Excluir</button>
                 </form>
             </div>
@@ -248,30 +201,21 @@
     </div>
 </div>
 
-
-
-
 <%    if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("novo")) {
         out.print("<script>$('#modalDados').modal('show');</script>");
     }
-
 %>
 
 <%    if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("editar")) {
         out.print("<script>$('#modalDados').modal('show');</script>");
     }
-
 %>
 
 
 <%    if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("excluir")) {
-
         out.print("<script>$('#modal-deletar').modal('show');</script>");
     }
-
 %>                    
-
-
 
 <!--SCRIPT PARA SUBIR IMAGEM PARA O SERVIDOR -->
 <script type="text/javascript">
@@ -285,20 +229,13 @@
         reader.onloadend = function () {
             target.src = reader.result;
         };
-
         if (file) {
             reader.readAsDataURL(file);
-
-
         } else {
             target.src = "";
         }
     }
-
 </script>
-
-
-
 
 <!--AJAX PARA INSERÇÃO E EDIÇÃO DOS DADOS COM IMAGEM -->
 <script type="text/javascript">
@@ -306,32 +243,21 @@
         var pag = "<%=pag%>";
         event.preventDefault();
         var formData = new FormData(this);
-
         $.ajax({
             url: pag + "/inserir.jsp",
             type: 'POST',
             data: formData,
-
             success: function (mensagem) {
-
                 $('#mensagem').removeClass()
-
-                if (mensagem.trim() == "Salvo com Sucesso!!") {
+                if (mensagem.trim() == "Salvo com Sucesso!") {
                     $('#mensagem').addClass('text-success');
-                    //$('#nome').val('');
-                    //$('#cpf').val('');
                     $('#btn-fechar').click();
-                    window.location = "index.jsp?pag="+pag;
-
+                    window.location = "index.jsp?pag=" + pag;
                 } else {
-
                     $('#mensagem').addClass('text-danger')
                 }
-
                 $('#mensagem').text(mensagem)
-
             },
-
             cache: false,
             contentType: false,
             processData: false,
@@ -348,42 +274,28 @@
     });
 </script>
 
-
-
-
-
 <!--AJAX PARA EXCLUSÃO DOS DADOS -->
 <script type="text/javascript">
     $(document).ready(function () {
         var pag = "<%=pag%>";
         $('#btn-deletar').click(function (event) {
             event.preventDefault();
-
             $.ajax({
                 url: pag + "/excluir.jsp",
                 method: "post",
                 data: $('form').serialize(),
                 dataType: "text",
                 success: function (mensagem) {
-
                     if (mensagem.trim() === 'Excluído com Sucesso!!') {
-
-                       
                         $('#btn-cancelar-excluir').click();
-                        window.location = "index.jsp?pag="+pag;
+                        window.location = "index.jsp?pag=" + pag;
                     }
-
                     $('#mensagem_excluir').text(mensagem)
-
-
-
                 },
-
             })
         })
     })
 </script>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
