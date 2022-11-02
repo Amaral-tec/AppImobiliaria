@@ -15,14 +15,13 @@
 
         //recuperar o cpf do usuario para exclusão
         String cpf = "";
-        rs = st.executeQuery("SELECT * FROM corretores where id = '" + id + "' ");
+        rs = st.executeQuery("SELECT * FROM tb_setores where cpf = '" + cpf + "' ");
         while (rs.next()) {
             cpf = rs.getString(3);
             
         }
         
-        st.executeUpdate("DELETE from corretores where id = '" + id + "'");
-        st.executeUpdate("DELETE from usuarios where cpf = '" + cpf + "'");
+        st.executeUpdate("DELETE from tb_usuarios where cpf = '" + cpf + "'");
 
         out.print("Excluído com Sucesso!!");
 

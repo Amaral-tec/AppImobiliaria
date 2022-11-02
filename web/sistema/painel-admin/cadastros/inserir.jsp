@@ -63,15 +63,12 @@
             }
 
             if (id.equals("")) {
-                st.executeUpdate("INSERT into corretores (nome, cpf, telefone, email, endereco, foto) values ('" + nome + "', '" + cpf + "' , '" + telefone + "' , '" + email + "', '" + imagem + "')");
-                st.executeUpdate("INSERT into usuarios (nome, cpf, email, senha, nivel, foto) values ('" + nome + "', '" + cpf + "', '" + email + "', '123', 'corretor', '" + imagem + "')");
+                st.executeUpdate("INSERT into tb_usuarios (nome, cpf, telefone, email, endereco, foto) values ('" + nome + "', '" + cpf + "' , '" + telefone + "' , '" + email + "', '" + imagem + "')");
             } else {
                 if (imagem.equals("sem-foto.jpg")) {
-                    st.executeUpdate("UPDATE corretores SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "' WHERE id = '" + id + "'");
-                    st.executeUpdate("UPDATE usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "' WHERE cpf = '" + antigo + "'");
+                    st.executeUpdate("UPDATE tb_usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "' WHERE id = '" + id + "'");
                 } else {
-                    st.executeUpdate("UPDATE corretores SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "' foto = '" + imagem + "' WHERE id = '" + id + "'");
-                    st.executeUpdate("UPDATE usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "', foto = '" + imagem + "' WHERE cpf = '" + antigo + "'");
+                    st.executeUpdate("UPDATE tb_usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', telefone = '" + telefone + "', email = '" + email + "' foto = '" + imagem + "' WHERE id = '" + id + "'");
                 }
 
             }
