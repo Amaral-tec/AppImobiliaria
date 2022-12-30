@@ -4,6 +4,7 @@
     String whatsapp = new Config().whatsapp;
     String mobilePhone = new Config().mobilePhone;
     String whatsappLink = new Config().whatsappLink;
+    String address = new Config().address;
 %>
 
 <!-- Footer Section Begin -->
@@ -17,13 +18,11 @@
                             <img src="img/logo-b-p.png" alt="">
                         </a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua ut aliquip ex ea</p>
+                    <p><%=address%></p>
                     <div class="fs-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
                         <a target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=<%=whatsappLink%>"> <i class="fa fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -34,20 +33,20 @@
                 <div class="fs-widget">
                     <h5>Links</h5>
                     <ul>
-                        <li><a href="#">Anuncie conosco</a></li> 
-                        <li><a href="#">Contato</a></li>
-                        <li><a href="#">Registrar</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="./contact.jsp">Contact</a></li>
+                        <li><a href="NiceAdmin">Register</a></li>
+                        <li><a href="NiceAdmin">Login</a></li>
+                        <li><a href="./blog.jsp">Blog</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="fs-widget">
-                    <h5>Ofertas</h5>
-                    <p>Deseja Receber ofertas de Imóveis?</p>
+                    <h5>Newsletter</h5>
+                    <p>Do you want to receive Real Estate offers?</p>
                     <form action="#" class="subscribe-form">
                         <input type="text" placeholder="Email">
-                        <button type="submit" class="site-btn">Inscrever-se</button>
+                        <button type="submit" class="site-btn">Connect With Us</button>
                     </form>
                 </div>
             </div>

@@ -11,8 +11,8 @@
                             <div class="hc-text">
                                 <h4>Residencial Thisaliah</h4>
                                 <p><span class="icon_pin_alt"></span> Natal, Rio Grande do Norte</p>
-                                <div class="label">Para Alugar</div>
-                                <h5>R$ 750,00<span>/mês</span></h5>
+                                <div class="label">For Rent</div>
+                                <h5>R$ 750,00<span>/month</span></h5>
                             </div>
                             <div class="hc-widget">
                                 <ul>
@@ -33,7 +33,7 @@
                             <div class="hc-text">
                                 <h4>Balaji Symphony</h4>
                                 <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">Para Comprar</div>
+                                <div class="label">For Sale</div>
                                 <h5>$ 65.0<span>/month</span></h5>
                             </div>
                             <div class="hc-widget">
@@ -83,27 +83,27 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="section-title">
-                    <h4>Últimos Lançamentos</h4>
+                    <h4>Latest PROPERTY</h4>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="property-controls">
                     <ul>
-                        <li id="listarTodos" data-filter="all">Todos</li>
-                        <li data-filter=".apart">Apartamentos</li>
-                        <li data-filter=".house">Casas</li>
-                        <li data-filter=".office">Salas Comerciais</li>
-                        <li data-filter=".restaurent">Lotes</li>
+                        <li id="listarTodos" data-filter="all">All</li>
+                        <li data-filter=".apart">Apartment</li>
+                        <li data-filter=".house">House</li>
+                        <li data-filter=".office">Office</li>
+                        <li data-filter=".ground">Ground</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Início dos cards com os Imóveis--> 
+        <!-- Beginning of cards with Real Estate --> 
 
         <jsp:include page="profile.jsp" /> 
 
-        <!-- Fim dos cards com os Imóveis-->    
+        <!-- End of cards with Real Estate -->    
     </div>
 </div>
 </section>
@@ -118,8 +118,11 @@
                     <div class="section-title">
                         <h4>Why choose us</h4>
                     </div>
-                    <p>Lorem Ipsum has been the industry?s standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>Our website features the best real estate search for homes, condos, 
+                        land and foreclosure properties available. It is the only site you will ever need!</p>
+                    <p>You can save searches, and get daily email alerts of new listings, price changes, sold data, 
+                        and market reports. Our Interactive Map Search allows you to view properties on a map or refine 
+                        your search by drawing the boundaries around the area you desire.</p>
                 </div>
                 <div class="chooseus-features">
                     <div class="cf-item">
@@ -137,7 +140,7 @@
                         </div>
                         <div class="cf-text">
                             <h5>Buy or rent homes</h5>
-                            <p>Millions of houses and apartments in your favourite cities</p>
+                            <p>Various houses and apartments in your favorite cities</p>
                         </div>
                     </div>
                     <div class="cf-item">
@@ -172,15 +175,15 @@
             <div class="col-lg-4 p-0">
                 <div class="feature-property-left">
                     <div class="section-title">
-                        <h4>Categorias</h4>
+                        <h4>Categories</h4>
                     </div>
                     <ul>
-                        <li>Apartamento</li>
-                        <li>Casa</li>
-                        <li>Sala Comercial</li>
-                        <li>Lote</li>
+                        <li>Apartment</li>
+                        <li>House</li>
+                        <li>Office</li>
+                        <li>Ground</li>
                     </ul>
-                    <a href="property.jsp">Ver todos</a>
+                    <a href="property.jsp">All</a>
                 </div>
             </div>
             <div class="col-lg-8 p-0">
@@ -230,12 +233,12 @@
         <div class="row">
             <div class="col-lg-8 col-md-8">
                 <div class="section-title">
-                    <h4>Nosso Time</h4>
+                    <h4>Our Agents</h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="team-btn">
-                    <a href="#"><i class="fa fa-user"></i> TODOS os corretores</a>
+                    <a href="#"><i class="fa fa-user"></i>All</a>
                 </div>
             </div>
         </div>
@@ -297,31 +300,31 @@
     <div class="cs-item-list">
         <div class="cs-item set-bg" data-setbg="img/categories/cat-1.jpg">
             <div class="cs-text">
-                <h5>Apartamento</h5>
+                <h5>Apartment</h5>
                 <span>230 property</span>
             </div>
         </div>
         <div class="cs-item set-bg" data-setbg="img/categories/cat-2.jpg">
             <div class="cs-text">
-                <h5>Casa</h5>
+                <h5>House</h5>
                 <span>230 property</span>
             </div>
         </div>
         <div class="cs-item set-bg" data-setbg="img/categories/cat-3.jpg">
             <div class="cs-text">
-                <h5>Sala Comercial</h5>
+                <h5>Office</h5>
                 <span>230 property</span>
             </div>
         </div>
         <div class="cs-item set-bg" data-setbg="img/categories/cat-4.jpg">
             <div class="cs-text">
-                <h5>Lote</h5>
+                <h5>Ground</h5>
                 <span>230 property</span>
             </div>
         </div>
         <div class="cs-item set-bg" data-setbg="img/categories/cat-5.jpg">
             <div class="cs-text">
-                <h5>Outros</h5>
+                <h5>Others</h5>
                 <span>230 property</span>
             </div>
         </div>

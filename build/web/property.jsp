@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h4>IMÓVEIS Recentes</h4>
+                    <h4>Latest PROPERTY</h4>
                 </div>
             </div>
         </div>

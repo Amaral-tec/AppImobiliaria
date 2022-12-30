@@ -216,7 +216,7 @@
     });
     $("#roomsizeRange").val("[" + $("#roomsize-range").slider("values", 0) + "-" + $("#roomsize-range").slider("values", 1) + "]");
 
-    //price range (aluguel)
+    //price range (for rent)
     $("#price-range-rent").slider({
         range: true,
         min: 0,
@@ -229,7 +229,7 @@
     });
     $("#priceRangeRent").val("[ " + $("#price-range-rent").slider("values", 0) + " - " + $("#price-range-rent").slider("values", 1) + " ]" + " R$");
 
- //price range (compra)
+ //price range (for sell)
     $("#price-range-sale").slider({
         range: true,
         min: 10000,

@@ -1,6 +1,6 @@
 package domain;
 
-/**
+/*
  *
  * @author leandro.amaral
  *
@@ -8,5 +8,9 @@ package domain;
  * salvas no banco de dados
  */
 public interface Persistent {
+    
+    public Long getId();
+    
+    public void setId(Long id);
 
 }

@@ -4,20 +4,20 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="section-title">
-                    <h4>Aonde você gostaria de morar?</h4>
+                    <h4>Let Us Help You Find a Place to Call Home</h4>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="change-btn">
                     <div class="cb-item">
                         <label for="cb-rent" class="active">
-                            Alugar
+                            For rent
                             <input type="radio" id="cb-rent">
                         </label>
                     </div>
                     <div class="cb-item">
                         <label for="cb-sale">
-                            Comprar
+                            For sale
                             <input type="radio" id="cb-sale">
                         </label>
                     </div>
@@ -27,57 +27,61 @@
         <div class="search-form-content">
             <form action="#" class="filter-form">
                 <select class="sm-width">
-                    <option value="">Cidade</option>
+                    <option value="">City</option>
                 </select>
                 <select class="sm-width">
-                    <option value="">Bairro</option>
+                    <option value="">State</option>
                 </select>
                 <select class="sm-width">
-                    <option value="">Status do Imóvel</option>
-                    <option value="Novo">Novo</option>
-                    <option value="Planta">Planta</option>
-                    <option value="Usado">Usado</option>
+                    <option value="">Property status</option>
+                    <option value="New">New</option>
+                    <option value="Construction">Under Construction</option>
+                    <option value="Used">Used</option>
                 </select>
                 <select class="sm-width">
-                    <option value="">Tipo de Imóvel</option>
+                    <option value="">Property Type</option>
+                    <option value="apartament">Apartment</option>
+                    <option value="house">House</option>
+                    <option value="office">Office</option>
+                    <option value="ground">Land</option>
                 </select>
                 <select class="sm-width">
-                    <option value="">Número de Quartos</option>
+                    <option value="">Number of bedrooms</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="mais">Mais de 3</option>
+                    <option value="more">More</option>
                 </select>
                 <select class="sm-width">
-                    <option value="">Vagas de Garagem</option>
+                    <option value="">Parking spaces</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="mais">Mais de 3</option>
+                    <option value="more">More</option>
                 </select>
                 <div class="room-size-range-wrap sm-width">
                     <div class="price-text">
-                        <label for="roomsizeRange">Tamanho m²:</label>
+                        <label for="roomsizeRange">Size m²:</label>
                         <input type="text" id="roomsizeRange" readonly>
                     </div>
                     <div id="roomsize-range" class="slider"></div>
                 </div>
-                <!-- para alterar o intervalo edite o arquivo ../js/main -->
+                <!-- to change the range edit the file ../js/main -->
                 <div id="priceRent" class="price-range-wrap sm-width">
                     <div class="price-text">
-                        <label for="priceRange">Valor:</label>
+                        <label for="priceRange">Value:</label>
                         <input type="text" id="priceRangeRent" readonly>
                     </div>
                     <div id="price-range-rent" class="slider"></div>
                 </div>
                 <div id="priceSale" class="price-range-wrap sm-width">
                     <div class="price-text">
-                        <label for="priceRange">Valor:</label>
+                        <label for="priceRange">Value:</label>
                         <input type="text" id="priceRangeSale" readonly>
                     </div>
                     <div id="price-range-sale" class="slider"></div>
                 </div>
-                <button type="button" class="search-btn sm-width">Buscar</button>
+                <button type="button" class="search-btn sm-width">Search</button>
             </form>
         </div>
         <div class="more-option">
@@ -85,36 +89,18 @@
                 <div class="card">
                     <div class="card-heading active">
                         <a data-toggle="collapse" data-target="#collapseOne">
-                            Mais Opições de Busca
+                            More Search Options
                         </a>
                     </div>
                     <div id="collapseOne" class="collapse" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="mo-list">
                                 <div class="ml-column">
-                                    <label for="air">Ar condicionado
+                                    <label for="air">Air conditioning
                                         <input type="checkbox" id="air">
                                         <span class="checkbox"></span>
                                     </label>
-                                    <label for="refrigerator">Refrigerador
-                                        <input type="checkbox" id="refrigerator">
-                                        <span class="checkbox"></span>
-                                    </label>
-                                    <label for="washer">Máquina de Lavar
-                                        <input type="checkbox" id="washer">
-                                        <span class="checkbox"></span>
-                                    </label>
-                                    <label for="shower">Chuveiro Elétrico
-                                        <input type="checkbox" id="shower">
-                                        <span class="checkbox"></span>
-                                    </label>
-                                </div>
-                                <div class="ml-column">
-                                    <label for="tv">Tv à Cabo
-                                        <input type="checkbox" id="tv">
-                                        <span class="checkbox"></span>
-                                    </label>
-                                    <label for="microwave">Microondas
+                                    <label for="microwave">Microwave
                                         <input type="checkbox" id="microwave">
                                         <span class="checkbox"></span>
                                     </label>
@@ -122,44 +108,46 @@
                                         <input type="checkbox" id="wifi">
                                         <span class="checkbox"></span>
                                     </label>
-                                    <label for="pista">Pista de Caminhada
-                                        <input type="checkbox" id="wifi">
+                                </div>
+                                <div class="ml-column">
+                                    <label for="sports">Multi-sports court
+                                        <input type="checkbox" id="sports">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="tv">Tv Cable
+                                        <input type="checkbox" id="tv">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="hiking">Hiking trail
+                                        <input type="checkbox" id="hiking">
                                         <span class="checkbox"></span>
                                     </label>
                                 </div>
                                 <div class="ml-column">
-                                    <label for="quadra">Quadra Poliesportiva
+                                    <label for="pool">Swimming Pool
                                         <input type="checkbox" id="pool">
                                         <span class="checkbox"></span>
                                     </label>
-                                    <label for="pool">Piscina
-                                        <input type="checkbox" id="pool">
+                                    <label for="gourmet">Gourmet space
+                                        <input type="checkbox" id="gourmet">
                                         <span class="checkbox"></span>
                                     </label>
-                                    <label for="gourmet">Espaço Gourmet
-                                        <input type="checkbox" id="window">
-                                        <span class="checkbox"></span>
-                                    </label>
-                                    <label for="bicicletario">Bicicletário
-                                        <input type="checkbox" id="window">
+                                    <label for="bike">Bike rack
+                                        <input type="checkbox" id="bike">
                                         <span class="checkbox"></span>
                                     </label>
                                 </div>
                                 <div class="ml-column last-column">
-                                    <label for="salao">Salão de Eventos
-                                        <input type="checkbox" id="gym">
+                                    <label for="hall">Events Hall
+                                        <input type="checkbox" id="hall">
                                         <span class="checkbox"></span>
                                     </label>
-                                    <label for="barbeque">Churrasqueira
+                                    <label for="barbeque">Barbeque
                                         <input type="checkbox" id="barbeque">
                                         <span class="checkbox"></span>
                                     </label>
-                                    <label for="gym">Academia
-                                        <input type="checkbox" id="sauna">
-                                        <span class="checkbox"></span>
-                                    </label>
-                                    <label for="baby">Espaço Baby
-                                        <input type="checkbox" id="sauna">
+                                    <label for="gym">Gym
+                                        <input type="checkbox" id="gym">
                                         <span class="checkbox"></span>
                                     </label>
                                 </div>

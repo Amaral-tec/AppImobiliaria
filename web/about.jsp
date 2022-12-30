@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <h4>IMOB & CIA</h4>
+                    <h4>About us</h4>
                     <div class="bt-option">
                         <a href="./index.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Sobre</span>
+                        <span>About</span>
                     </div>
                 </div>
             </div>
@@ -25,9 +25,9 @@
             <div class="col-lg-6">
                 <div class="about-text">
                     <div class="at-title">
-                        <h3>Bem vindo a IMOB</h3>
-                        <p>Lorem Ipsum has been the industry?s standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type.</p>
+                        <h3>Welcom to Real Estate</h3>
+                        <p>We're here to guide you home.</p>
+                        <p>Real estate should be one of life's great adventures. And every great adventure needs a guide.</p>
                     </div>
                     <div class="at-feature">
                         <div class="af-item">
@@ -35,7 +35,7 @@
                                 <img src="img/chooseus/chooseus-icon-1.png" alt="">
                             </div>
                             <div class="af-text">
-                                <h6>Os melhores imóveis</h6>
+                                <h6>Find your future home</h6>
                                 <p>We help you find a new home by offering a smart real estate.</p>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <img src="img/chooseus/chooseus-icon-2.png" alt="">
                             </div>
                             <div class="af-text">
-                                <h6>Sus compra facilita</h6>
+                                <h6>Experienced agents</h6>
                                 <p>Find an agent who knows your market best</p>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                                 <img src="img/chooseus/chooseus-icon-3.png" alt="">
                             </div>
                             <div class="af-text">
-                                <h6>Corretores Especilizados</h6>
-                                <p>Millions of houses and apartments in your favourite cities</p>
+                                <h6>Buy or rent homes</h6>
+                                <p>Various houses and apartments in your favorite cities</p>
                             </div>
                         </div>
                         <div class="af-item">
@@ -62,7 +62,7 @@
                                 <img src="img/chooseus/chooseus-icon-4.png" alt="">
                             </div>
                             <div class="af-text">
-                                <h6>Melhores Localizações</h6>
+                                <h6>List your own property</h6>
                                 <p>Sign up now and sell or rent your own properties</p>
                             </div>
                         </div>
@@ -87,12 +87,12 @@
         <div class="row">
             <div class="col-lg-8 col-md-8">
                 <div class="section-title">
-                    <h4>Corretores Destaques</h4>
+                    <h4>Our Amazing Agents</h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="team-btn">
-                    <a href="corretores.jsp"><i class="fa fa-user"></i> Ver Todos</a>
+                    <a href="corretores.jsp"><i class="fa fa-user"></i>ALL counselor</a>
                 </div>
             </div>
         </div>

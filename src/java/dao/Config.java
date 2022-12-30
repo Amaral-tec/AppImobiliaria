@@ -1,20 +1,20 @@
-
 package dao;
 
 /**
  *
  * @author Leandro.Amaral
  */
-public class Config {
-public String email = "projetoimobiliariahv@gmail.com";
-public String whatsapp = "(31)97527-5084";
-public String mobilePhone = "(31)3333-3333";
-public String whatsappLink = "5531975275084";
+public final class Config {
 
+    public static String email = "hello@estateagency.com";
+    public static String whatsapp = "55 84 99109-2984";
+    public static String mobilePhone = "55 84 99109-2984";
+    public static String whatsappLink = "558491092984";
+    public static String address = "820 Joao Helio Alves Avenue, Planalto, Natal/RN Brazil";
 
 //CONFIGURAÇÕES DO BANCO DE DADOS
-public String servidor = "localhost";
-public String banco = "imobiliaria";
-public String usuario = "root";
-public String senha = "";
+    public static String server = "127.0.0.1";
+    public static String database = "estateagency";
+    public static String user = "root";
+    public static String password = "";
 }

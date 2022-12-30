@@ -1,26 +1,31 @@
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page import="dao.*"%> 
+<%@page import="domain.*"%> 
 
 
 <%
-    Statement st = null;
-    ResultSet rs = null;
+    UserDAO userDAO = new UserDAO();
 
-    //verificar se existe usuário cadastrado no BD
-    try {
+    userDAO.criarUsuarioAdmin();
 
-        st = new ConnectionFactory().conectar().createStatement();
-        rs = st.executeQuery("SELECT * FROM tb_usuarios");
+    if (request.getContentLength() > 0) {
+        User usuarioLogado = userDAO.login(request.getParameter("email"), request.getParameter("password"));
+        if (usuarioLogado == null) {
+            // Usuário ou senha inválida
+        } else {
+            session.setAttribute("nameUser", usuarioLogado.getName());
+            session.setAttribute("cpfUser", usuarioLogado.getCpf());
+            session.setAttribute("fotoUsuario", usuarioLogado.getPhoto());
+            session.setAttribute("idUsuario", usuarioLogado.getId());
 
-        if (rs.last() == false) {
-            //CRIAR O USUÁRIO CASO NÃO EXISTA
-            String email = new Config().email;
-            st.executeUpdate("INSERT into tb_usuarios (nome, cpf, email, senha, nivel, foto) values ('Administrador', '000.000.000-00' , '" + email + "' , '123', 'admin', 'sem-foto.jpg')");
+            response.sendRedirect("dashboard");
+
+            //verificar permissão
+            if (usuarioLogado.getEmail() == Config.email) {
+                response.sendRedirect("painel-admin");
+            }
         }
-
-    } catch (Exception e) {
-        out.print(e);
     }
 
 %>
@@ -62,41 +67,54 @@
                             </div>
 
                             <p align="center" class="texto-alerta mt-2">                                
-                                <%  String email = request.getParameter("email");
-                                    String senha = request.getParameter("senha");
-                                    String nomeUsuario = "";
-                                    String cpfUsuario = "";
-                                    String nivelUsuario = "";
-                                    String fotoUsuario = "";
-                                    String idUsuario = "";
+                                <%  /*
+                                    String email = request.getParameter("email");
+                                    String password = request.getParameter("password");
+                                    String nameUser = "";
+                                    String cpfUser = "";
+                                    String mobilephoneUser = "";
+                                    String addressUser = "";
+                                    String numberUser = "";
+                                    String districtUser = "";
+                                    String cityUser = "";
+                                    String stateUser = "";
+                                    String cepUser = "";
+                                    String passwordUser = "";
+                                    String photoUser = "";
 
                                     String user = "", pass = "";
                                     int i = 0;
                                     try {
-                                        st = new ConnectionFactory().conectar().createStatement();
-                                        rs = st.executeQuery("SELECT * FROM tb_usuarios where email = '" + email + "' and senha = '" + senha + "'");
+                                        connection = ConnectionFactory.getConnection();
+                                        rs = st.executeQuery("SELECT * FROM tb_usuarios where email = '" + email + "' and password = '" + password + "'");
                                         while (rs.next()) {
-                                            user = rs.getString(4);
-                                            pass = rs.getString(5);
-                                            nomeUsuario = rs.getString(2);
-                                            cpfUsuario = rs.getString(3);
-                                            nivelUsuario = rs.getString(6);
-                                            fotoUsuario = rs.getString(7);
-                                            idUsuario = rs.getString(1);
+                                            user = rs.getString(5);
+                                            pass = rs.getString(12);
+                                            nameUser = rs.getString(2);
+                                            cpfUser = rs.getString(3);
+                                            mobilephoneUser = rs.getString(4);
+                                            photoUser = rs.getString(13);
+                                            addressUser = rs.getString(6);
+                                            numberUser = rs.getString(7);
+                                            districtUser = rs.getString(8);
+                                            cityUser = rs.getString(9);
+                                            stateUser = rs.getString(10);
+                                            cepUser = rs.getString(11);
+                                            passwordUser = rs.getString(12);
+                                            idUser = rs.getString(1);
                                             rs.last();
                                             i = rs.getRow();
                                         }
                                     } catch (Exception e) {
                                         out.print(e);
                                     }
-                                    if (email == null || senha == null) {
+                                    if (email == null || password == null) {
                                         out.println("Preencha os Dados");
                                     } else {
                                         if (i > 0) {
-                                            session.setAttribute("nomeUsuario", nomeUsuario);
-                                            session.setAttribute("cpfUsuario", cpfUsuario);
-                                            session.setAttribute("nivelUsuario", nivelUsuario);
-                                            session.setAttribute("fotoUsuario", fotoUsuario);
+                                            session.setAttribute("nameUser", nameUser);
+                                            session.setAttribute("cpfUser", cpfUser);
+                                            session.setAttribute("fotoUsuario", photoUser);
                                             session.setAttribute("idUsuario", idUsuario);
                                             if (nivelUsuario.equals("admin")) {
                                                 response.sendRedirect("painel-admin");
@@ -111,6 +129,7 @@
                                             out.println("Dados Incorretos");
                                         }
                                     }
+                                     */
                                 %> 
                             </p>
 
@@ -131,6 +150,5 @@
             </div>
         </center>
     </div>
-
 </div>
 
